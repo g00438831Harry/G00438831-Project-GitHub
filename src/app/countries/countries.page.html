@@ -1,23 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>United</ion-title>
+    <ion-title>{{countryName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" >
- 
-  <ion-content class="ion-padding">
-    <ion-list>
-    <ion-card>
-      <ion-card-content>
-        <ion-item *ngFor="let c of countries">
-          <ion-label>{{c.status}}</ion-label>
-        </ion-item>
-      </ion-card-content>
-      <ion-button expand="block" fill="outline" color="primary">NEWS</ion-button>
-      <ion-button expand="block" fill="outline" color="primary">WEATHER</ion-button>
+    <ion-card *ngFor="let c of countryInfo">
+      <img src="{{c.flags.png}}" />
+      <ion-card-header>
+          <ion-card-title>{{c.name.official}}</ion-card-title>
+      </ion-card-header>
+          <ion-button expand="block" fill="outline" color="primary">NEWS</ion-button>
+          <ion-button expand="block" fill="outline" color="primary">WEATHER</ion-button>
     </ion-card>
-  </ion-list>
   </ion-content>
 
 

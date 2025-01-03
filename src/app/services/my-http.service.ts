@@ -8,7 +8,7 @@ export class MyHttpService {
 
   constructor() { }
 
-  async get(options: HttpOptions){
+  public async get(options: HttpOptions){
     return await CapacitorHttp.get(options);
   }
 }

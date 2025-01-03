@@ -13,12 +13,16 @@ import {
   //IonList,
   IonToolbar
 } from '@ionic/angular/standalone';
+import { FormsModule } from '@angular/forms';
 import { NavController } from '@ionic/angular'
+import { MyDataService } from '../services/my-data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
+  standalone: true,
   imports: [
     IonHeader,
     IonToolbar,
@@ -32,26 +36,19 @@ import { NavController } from '@ionic/angular'
     IonItem,
    // IonList,
     IonToolbar,
-    CommonModule
+    CommonModule,
+    FormsModule
 ], 
 })
 export class HomePage {
 
-//options: HttpOptions = {
-//  url: "https://api.countrylayer.com/v2/all?access_key=c8e0e2f66dc542ab0946961f4dcc9fec"
-//}
-//"https://restcountries.com/v3.1/all"
+countryName: string = ""
 
-//private mhs: MyHttpService, private mds: MyDataService,
-  constructor(private navCtrl: NavController) {}
+constructor(private router: Router, private mds:MyDataService){}
 
-  
-  
-  
-
-
-goToCountriesPage(){
-  this.navCtrl.navigateForward('/countries');
+async goToCountryName(){
+  await this.mds.set("countryName", this.countryName);
+  this.router.navigate(['/countries'])
 }
 
   }
