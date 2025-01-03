@@ -1,14 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>{{country.name}}</ion-title>
+    <ion-title>United</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" >
  
-<ion-list>
-
-</ion-list>
+  <ion-content class="ion-padding">
+    <ion-list>
+    <ion-card>
+      <ion-card-content>
+        <ion-item *ngFor="let c of countries">
+          <ion-label>{{c.status}}</ion-label>
+        </ion-item>
+      </ion-card-content>
+      <ion-button expand="block" fill="outline" color="primary">NEWS</ion-button>
+      <ion-button expand="block" fill="outline" color="primary">WEATHER</ion-button>
+    </ion-card>
+  </ion-list>
+  </ion-content>
 
 
 
